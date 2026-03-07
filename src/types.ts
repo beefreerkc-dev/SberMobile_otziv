@@ -22,9 +22,15 @@ export interface FilterState {
 }
 
 export const SOURCE_LABELS: Record<ReviewSource, string> = {
-  otzovik: 'Otzovik',
-  yandex: 'Yandex Maps',
-  rustore: 'Rustore',
-  '2gis': '2GIS',
-  vk: 'VK',
+  otzovik: 'Оtzovik',
+  yandex: 'Яндекс.Карты',
+  rustore: 'RuStore',
+  '2gis': '2ГИС',
+  vk: 'ВКонтакте',
+}
+
+export const SENTIMENT_LABELS_RU: Record<Sentiment, string> = {
+  positive: 'Позитивный',
+  neutral: 'Нейтральный',
+  negative: 'Негативный',
 }

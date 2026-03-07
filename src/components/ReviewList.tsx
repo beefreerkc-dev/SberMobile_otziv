@@ -20,7 +20,7 @@ export function ReviewList({ reviews }: ReviewListProps) {
   return (
     <section className="space-y-4">
       <h2 className="text-lg font-semibold text-sber-dark">
-        Reviews {reviews.length > 0 && `(${reviews.length})`}
+        Отзывы {reviews.length > 0 && `(${reviews.length})`}
       </h2>
       <div className="grid gap-4">
         {slice.map((review) => (
@@ -28,7 +28,7 @@ export function ReviewList({ reviews }: ReviewListProps) {
         ))}
       </div>
       {reviews.length === 0 && (
-        <p className="text-gray-500 text-center py-8">No reviews match the current filters.</p>
+        <p className="text-gray-500 text-center py-8">Нет отзывов по выбранным фильтрам.</p>
       )}
       {hasMore && (
         <div className="flex justify-center pt-2">
@@ -37,7 +37,7 @@ export function ReviewList({ reviews }: ReviewListProps) {
             onClick={() => setShown((s) => Math.min(s + LOAD_MORE, reviews.length))}
             className="px-5 py-2.5 bg-sber-primary text-white font-medium rounded-lg hover:bg-sber-dark transition-colors"
           >
-            Load more
+            Показать ещё
           </button>
         </div>
       )}

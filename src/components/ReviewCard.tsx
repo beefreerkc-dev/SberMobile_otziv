@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { MessageCircle, MapPin, ShoppingBag, MapPinned, MessageSquare, Star, ExternalLink } from 'lucide-react'
 import type { Review, ReviewSource } from '../types'
-import { SOURCE_LABELS } from '../types'
+import { SOURCE_LABELS, SENTIMENT_LABELS_RU } from '../types'
 import { formatReviewDate } from '../lib/filterReviews'
 
 const TRUNCATE_LENGTH = 120
@@ -45,7 +45,7 @@ export function ReviewCard({ review }: ReviewCardProps) {
         {review.rating != null && (
           <>
             <span className="text-sm text-gray-400">•</span>
-            <span className="inline-flex items-center gap-1 text-sm text-amber-600" aria-label={`Rating: ${review.rating} out of 5`}>
+            <span className="inline-flex items-center gap-1 text-sm text-amber-600" aria-label={`Оценка: ${review.rating} из 5`}>
               <Star className="w-4 h-4 fill-current" />
               {review.rating}
             </span>
@@ -60,13 +60,13 @@ export function ReviewCard({ review }: ReviewCardProps) {
             onClick={() => setExpanded(true)}
             className="ml-1 text-sber-primary hover:underline font-medium"
           >
-            read more
+            ещё
           </button>
         )}
       </p>
       <div className="flex flex-wrap items-center justify-between gap-2">
         <span className={`inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium border ${sentimentStyle}`}>
-          {review.sentiment}
+          {SENTIMENT_LABELS_RU[review.sentiment]}
         </span>
         <div className="flex items-center gap-2 text-xs text-gray-500">
           <span>{review.author}</span>
@@ -75,7 +75,7 @@ export function ReviewCard({ review }: ReviewCardProps) {
             target="_blank"
             rel="noopener noreferrer"
             className="text-sber-primary hover:underline inline-flex items-center gap-0.5"
-            aria-label="Open original review"
+            aria-label="Открыть отзыв на источнике"
           >
             <ExternalLink className="w-3.5 h-3.5" />
           </a>

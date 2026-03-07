@@ -5,10 +5,10 @@ import { SOURCE_LABELS } from '../types'
 
 const ALL_SOURCES: ReviewSource[] = ['otzovik', 'yandex', 'rustore', '2gis', 'vk']
 const SENTIMENT_OPTIONS: { value: FilterState['sentiment']; label: string }[] = [
-  { value: 'all', label: 'All' },
-  { value: 'positive', label: 'Positive' },
-  { value: 'neutral', label: 'Neutral' },
-  { value: 'negative', label: 'Negative' },
+  { value: 'all', label: 'Все' },
+  { value: 'positive', label: 'Позитивные' },
+  { value: 'neutral', label: 'Нейтральные' },
+  { value: 'negative', label: 'Негативные' },
 ]
 
 interface FiltersProps {
@@ -44,13 +44,13 @@ export function Filters({ state, onChange, weekRange }: FiltersProps) {
       {/* Source */}
       <div>
         <div className="flex items-center justify-between mb-2">
-          <label className="text-sm font-medium text-gray-700">Source</label>
+          <label className="text-sm font-medium text-gray-700">Источник</label>
           <button
             type="button"
             onClick={selectAllSources}
             className="text-xs text-sber-primary hover:underline"
           >
-            All
+            Все
           </button>
         </div>
         <div className="flex flex-wrap gap-2">
@@ -71,13 +71,13 @@ export function Filters({ state, onChange, weekRange }: FiltersProps) {
       {/* Date range */}
       <div>
         <div className="flex items-center justify-between mb-2">
-          <label className="text-sm font-medium text-gray-700">Date range</label>
+          <label className="text-sm font-medium text-gray-700">Период</label>
           <button
             type="button"
             onClick={clearDates}
             className="text-xs text-sber-primary hover:underline"
           >
-            Clear
+            Сбросить
           </button>
         </div>
         <div className="flex flex-wrap gap-2 items-center">
@@ -104,13 +104,13 @@ export function Filters({ state, onChange, weekRange }: FiltersProps) {
       {/* Sentiment */}
       <div>
         <div className="flex items-center justify-between mb-2">
-          <label className="text-sm font-medium text-gray-700">Sentiment</label>
+          <label className="text-sm font-medium text-gray-700">Тональность</label>
           <button
             type="button"
             onClick={clearSentiment}
             className="text-xs text-sber-primary hover:underline"
           >
-            Clear
+            Сбросить
           </button>
         </div>
         <select
@@ -141,7 +141,7 @@ export function Filters({ state, onChange, weekRange }: FiltersProps) {
           className="flex items-center gap-2 w-full justify-center py-3 bg-white rounded-xl shadow-card border border-gray-200"
         >
           <Filter className="w-4 h-4" />
-          <span>Filters</span>
+          <span>Фильтры</span>
           {hasActiveFilters && (
             <span className="w-2 h-2 rounded-full bg-sber-primary" aria-hidden />
           )}
@@ -151,19 +151,19 @@ export function Filters({ state, onChange, weekRange }: FiltersProps) {
             className="fixed inset-0 z-50 bg-black/30 flex flex-col items-end"
             onClick={() => setOpen(false)}
             role="dialog"
-            aria-label="Filters"
+            aria-label="Фильтры"
           >
             <div
               className="w-full max-w-sm h-full bg-[#f5f5f5] shadow-xl overflow-auto"
               onClick={(e) => e.stopPropagation()}
             >
               <div className="sticky top-0 bg-white border-b flex items-center justify-between px-4 py-3">
-                <h3 className="font-semibold">Filters</h3>
+                <h3 className="font-semibold">Фильтры</h3>
                 <button
                   type="button"
                   onClick={() => setOpen(false)}
                   className="p-2 rounded-lg hover:bg-gray-100"
-                  aria-label="Close"
+                  aria-label="Закрыть"
                 >
                   <X className="w-5 h-5" />
                 </button>

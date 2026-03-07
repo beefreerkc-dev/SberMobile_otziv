@@ -22,7 +22,7 @@ export function filterReviews(
 export function formatReviewDate(iso: string): string {
   const date = new Date(iso + 'T12:00:00')
   const day = date.getDate()
-  const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+  const months = ['янв', 'фев', 'мар', 'апр', 'май', 'июн', 'июл', 'авг', 'сен', 'окт', 'нояб', 'дек']
   const month = months[date.getMonth()]
   return `${day} ${month}`
 }

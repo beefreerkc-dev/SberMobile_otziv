@@ -2,10 +2,10 @@ export function Header() {
   return (
     <header className="bg-white shadow-card rounded-xl px-6 py-5 mb-6">
       <h1 className="text-2xl font-bold text-sber-dark tracking-tight">
-        SberMobile Review Monitor
+        Монитор отзывов SberMobile
       </h1>
       <p className="text-sentiment-neutral mt-1 text-sm">
-        Reviews collected this week from otzovik, Yandex Maps, Rustore, 2GIS, VK
+        Отзывы за неделю с Otzovik, Яндекс.Карт, RuStore, 2ГИС и ВКонтакте
       </p>
     </header>
   )
