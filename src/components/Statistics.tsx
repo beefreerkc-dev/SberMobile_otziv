@@ -19,12 +19,6 @@ interface StatisticsProps {
   weekRange: [string, string]
 }
 
-const SENTIMENT_COLORS = {
-  positive: '#2dbd4f',
-  neutral: '#a0aec0',
-  negative: '#e53e3e',
-}
-
 const SOURCE_CHART_COLORS = ['#2dbd4f', '#1e7e34', '#38a169', '#48bb78', '#68d391']
 
 function buildDailyData(reviews: Review[], dateFrom: string, dateTo: string): { date: string; count: number; label: string }[] {
@@ -139,7 +133,7 @@ export function Statistics({ reviews, weekRange }: StatisticsProps) {
                     <Cell key={i} fill={SOURCE_CHART_COLORS[i % SOURCE_CHART_COLORS.length]} />
                   ))}
                 </Pie>
-                <Tooltip formatter={(value: number, name: string, props) => [`${value} reviews`, props.payload?.name]} />
+                <Tooltip formatter={(value: number, _name: string, props: { payload?: { name?: string } }) => [`${value} reviews`, props.payload?.name]} />
                 <Legend />
               </PieChart>
             </ResponsiveContainer>
