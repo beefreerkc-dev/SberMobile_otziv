@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --sber-primary: #2dbd4f;
+  --sber-dark: #1e7e34;
+  --bg-light: #f5f5f5;
+  --sentiment-positive: #2dbd4f;
+  --sentiment-negative: #e53e3e;
+  --sentiment-neutral: #a0aec0;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: var(--bg-light);
+  -webkit-font-smoothing: antialiased;
+}
