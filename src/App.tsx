@@ -8,10 +8,11 @@ import { Filters } from './components/Filters'
 import { ReviewList } from './components/ReviewList'
 
 /** Диапазон дат по фактическим отзывам для фильтра и графика */
-const [WEEK_START, WEEK_END] = (() => {
-  if (REVIEWS.length === 0) return ['2026-03-01', '2026-03-07'] as const
+const [WEEK_START, WEEK_END]: [string, string] = (() => {
+  if (REVIEWS.length === 0) return ['2026-03-01', '2026-03-07']
   const dates = REVIEWS.map((r) => r.date)
-  return [Math.min(...dates), Math.max(...dates)] as [string, string]
+  const sorted = [...dates].sort()
+  return [sorted[0]!, sorted[sorted.length - 1]!]
 })()
 
 function MonitorPage() {
