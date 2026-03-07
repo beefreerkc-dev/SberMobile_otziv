@@ -1,19 +1,22 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { useFilterFromUrl } from './hooks/useFilterFromUrl'
 import { filterReviews } from './lib/filterReviews'
-import { MOCK_REVIEWS } from './data/mockReviews'
+import { REVIEWS } from './data/reviews'
 import { Header } from './components/Header'
 import { Statistics } from './components/Statistics'
 import { Filters } from './components/Filters'
 import { ReviewList } from './components/ReviewList'
 
-/** Current week for the prototype: March 1–7, 2026 */
-const WEEK_START = '2026-03-01'
-const WEEK_END = '2026-03-07'
+/** Диапазон дат по фактическим отзывам для фильтра и графика */
+const [WEEK_START, WEEK_END] = (() => {
+  if (REVIEWS.length === 0) return ['2026-03-01', '2026-03-07'] as const
+  const dates = REVIEWS.map((r) => r.date)
+  return [Math.min(...dates), Math.max(...dates)] as [string, string]
+})()
 
 function MonitorPage() {
   const [filters, setFilters] = useFilterFromUrl()
-  const filtered = filterReviews(MOCK_REVIEWS, {
+  const filtered = filterReviews(REVIEWS, {
     sources: filters.sources,
     dateFrom: filters.dateFrom,
     dateTo: filters.dateTo,

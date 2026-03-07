@@ -5,7 +5,7 @@ export function Header() {
         Монитор отзывов SberMobile
       </h1>
       <p className="text-sentiment-neutral mt-1 text-sm">
-        Отзывы за неделю с Otzovik, Яндекс.Карт, RuStore, 2ГИС и ВКонтакте
+        Отзывы с Otzovik, Яндекс.Карты, RuStore, 2ГИС и ВКонтакте
       </p>
     </header>
   )
