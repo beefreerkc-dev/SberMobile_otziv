@@ -1,6 +1,6 @@
-# SberMobile Review Monitor
+# Монитор отзывов СберМобайл
 
-A prototype web app that collects and displays user reviews about SberMobile from otzovik, Yandex Maps, Rustore, 2GIS, and VK. This version uses **mock data** for the current week (March 1–7, 2026).
+Прототип веб-приложения для сбора и отображения отзывов о СберМобайле с Otzovik, Яндекс.Карт, RuStore, 2ГИС и ВКонтакте. This version uses **mock data** for the current week (March 1–7, 2026).
 
 ## Features
 
@@ -9,7 +9,7 @@ A prototype web app that collects and displays user reviews about SberMobile fro
 - **Filters** — By source, date range, sentiment; state synced to URL query params for shareable links
 - **Reviews list** — Cards with source, date, text (expandable “read more”), sentiment, optional rating; “Load more” pagination
 - **Responsive** — Desktop: sidebar filters; mobile: filters in a slide-out panel (hamburger-style trigger)
-- **Branding** — SberMobile colors (primary green `#2dbd4f`, dark green `#1e7e34`, light gray background)
+- **Брендинг** — цвета СберМобайл (основной зелёный `#2dbd4f`, тёмно-зелёный `#1e7e34`, светлый фон)
 
 ## Tech stack
 
@@ -37,7 +37,7 @@ Open [http://localhost:5173](http://localhost:5173). Filter state is in the URL 
    cd SberMobile_otziv
    git init
    git add .
-   git commit -m "Initial commit: SberMobile Review Monitor prototype"
+   git commit -m "Initial commit: Монитор отзывов СберМобайл"
    git branch -M main
    git remote add origin https://github.com/YOUR_USERNAME/SberMobile_otziv.git
    git push -u origin main

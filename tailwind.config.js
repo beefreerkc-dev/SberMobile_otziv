@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        // SberMobile brand
+        // СберМобайл — бренд
         sber: {
           primary: '#2dbd4f',
           dark: '#1e7e34',
