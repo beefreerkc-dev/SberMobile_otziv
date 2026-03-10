@@ -68,7 +68,9 @@ function buildSourceData(reviews: Review[]): { name: string; value: number; sour
 export function Statistics({ reviews, weekRange }: StatisticsProps) {
   const [dateFrom, dateTo] = weekRange
   const dailyData = buildDailyData(reviews, dateFrom, dateTo)
-  const sourceData = buildSourceData(reviews).filter((d) => d.value > 0)
+  const sourceData = buildSourceData(reviews)
+    .filter((d) => d.value > 0)
+    .sort((a, b) => b.value - a.value)
 
   const positive = reviews.filter((r) => r.sentiment === 'positive').length
   const neutral = reviews.filter((r) => r.sentiment === 'neutral').length
@@ -127,6 +129,7 @@ export function Statistics({ reviews, weekRange }: StatisticsProps) {
                   cx="50%"
                   cy="50%"
                   outerRadius={70}
+                  startAngle={90}
                   label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
                 >
                   {sourceData.map((_, i) => (
