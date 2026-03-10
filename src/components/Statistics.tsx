@@ -26,36 +26,6 @@ const SENTIMENT_CHART_COLORS: Record<Sentiment, string> = {
   negative: '#e53e3e',
 }
 
-/** Подпись внутри сектора: название и % */
-function PieLabelInside({
-  cx,
-  cy,
-  name,
-  percent,
-}: {
-  cx: number
-  cy: number
-  name: string
-  percent: number
-}) {
-  const text = `${name} ${(percent * 100).toFixed(0)}%`
-  return (
-    <text
-      x={cx}
-      y={cy}
-      textAnchor="middle"
-      dominantBaseline="middle"
-      fill="white"
-      stroke="rgba(0,0,0,0.45)"
-      strokeWidth={2}
-      strokeLinejoin="round"
-      style={{ fontSize: 12, fontWeight: 600, pointerEvents: 'none' }}
-    >
-      {text}
-    </text>
-  )
-}
-
 interface StatisticsProps {
   reviews: Review[]
   /** Week range for daily trend: [dateFrom, dateTo] */
@@ -184,7 +154,7 @@ export function Statistics({ reviews, weekRange }: StatisticsProps) {
         </div>
       </div>
 
-      {/* Круговая диаграмма: по источникам или тональности, подписи внутри секторов */}
+      {/* Круговая диаграмма: по источникам или тональности */}
       <div>
         <div className="flex flex-wrap items-center gap-3 mb-2">
           <h3 className="text-sm font-medium text-gray-700">Круговая диаграмма</h3>
@@ -217,14 +187,7 @@ export function Statistics({ reviews, weekRange }: StatisticsProps) {
                     outerRadius={70}
                     startAngle={90}
                     endAngle={-270}
-                    label={(props) => (
-                      <PieLabelInside
-                        cx={props.cx}
-                        cy={props.cy}
-                        name={props.name}
-                        percent={props.percent}
-                      />
-                    )}
+                    label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
                   >
                     {pieData.map((entry, i) => (
                       <Cell key={entry.name + String(entry.value)} fill={getCellColor(entry as { sentiment?: Sentiment; source?: ReviewSource }, i)} />
