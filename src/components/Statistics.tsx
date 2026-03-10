@@ -115,7 +115,7 @@ export function Statistics({ reviews, weekRange }: StatisticsProps) {
         </div>
       </div>
 
-      {/* Distribution by source */}
+      {/* По источникам: полный круг, доли от 100% по отфильтрованным данным, от большего к меньшему, с 12 ч по часовой */}
       <div>
         <h3 className="text-sm font-medium text-gray-700 mb-2">По источникам</h3>
         {sourceData.length > 0 ? (
@@ -130,6 +130,7 @@ export function Statistics({ reviews, weekRange }: StatisticsProps) {
                   cy="50%"
                   outerRadius={70}
                   startAngle={90}
+                  endAngle={-270}
                   label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
                 >
                   {sourceData.map((_, i) => (
